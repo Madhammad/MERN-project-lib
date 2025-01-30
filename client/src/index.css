@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.project-content p {
+      margin-bottom: 0.5rem;
+      color:gray
+    }
+.ql-indent-1{
+      color : rgb(104, 103, 103);
+      font-size: 0.9rem;
+
+}
+.dark .project-content p {
+      color: #aeadad;
+    }    
+    .project-content p{
+      font-family: sans-serif;
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    
+    .project-content ul{
+      color : rgb(104, 103, 103);
+      margin: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+    .dark .project-content ul {
+      color: #aeadad;
+    }
+    .dark .project-content ul li {
+      color: #aeadad;
+    }
+    .project-content h4   {
+      font-size: 1.4rem;
+      font-family: sans-serif;
+      margin: 1.5rem 0;
+      color: 104 117 245;
+    }
+    
+    .project-content a {
+      color: rgb(73, 149, 199);
+      text-decoration: none;
+    }
+    
+    .project-content a:hover {
+      text-decoration: underline;
+    }
+    
+    .dark .project-content a {
+      color: red;
+    }
+    
+    .progress-container {
+      width: 100%;
+      height: 10px;
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #ddd;
+    }
+
+    /* Inner progress bar */
+    .progress-bar {
+      width: 15%; /* Width of the moving bar */
+      height: 100%;
+      background: linear-gradient(90deg, rgb(104 117 245) , rgb(68, 86, 249));
+      position: absolute;
+      border-radius: 10px;
+      animation: move 3s ease-in-out infinite;
+    }
+
+    /* Animation for the progress bar */
+    @keyframes move {
+      0% {
+        left: -10%;
+      }
+      50% {
+        left: 100%; /* Move right */
+      }
+      100% {
+        left: -10%; /* Move back to the start */
+      }
+    }
