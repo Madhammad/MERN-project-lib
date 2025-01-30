@@ -26,7 +26,7 @@ export default function SignUp() {
     setLoading(true);
 
     const { data } = await axios.post(
-      "http://localhost:3000/api/auth/signup",
+      "https://mern-project-lib.onrender.com/api/auth/signup",
       {
         username,
         email,

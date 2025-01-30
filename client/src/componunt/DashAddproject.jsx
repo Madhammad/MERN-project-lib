@@ -73,7 +73,7 @@ export default function DashAddproject() {
     formData.append("projectImage", file);
 
     const { data } = await axios.post(
-      "http://localhost:3000/api/project/createproject",
+      "https://mern-project-lib.onrender.com/api/project/createproject",
       formData,
       {
         headers: {

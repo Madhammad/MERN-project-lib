@@ -30,7 +30,7 @@ export default function Header() {
 
   const handleSignOut = async () => {
     const { data } = await axios.post(
-      `http://localhost:3000/api/auth/signout/${currentUser._id}`,
+      `https://mern-project-lib.onrender.com/api/auth/signout/${currentUser._id}`,
       {
         withCredentials: true,
       }

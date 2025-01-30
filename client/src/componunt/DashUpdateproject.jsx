@@ -32,7 +32,7 @@ export default function DashUpdateproject() {
   useEffect(() => {
     const fetchProject = async () => {
       const { data } = await axios.get(
-        `http://localhost:3000/api/project/getproject/${projectId}`,
+        `https://mern-project-lib.onrender.com/api/project/getproject/${projectId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -85,7 +85,7 @@ export default function DashUpdateproject() {
     // console.log("formData", formData.get("tags"));
 
     const { data } = await axios.put(
-      `http://localhost:3000/api/project/updateProject/${projectId}`,
+      `https://mern-project-lib.onrender.com/api/project/updateProject/${projectId}`,
       formData,
       {
         headers: {

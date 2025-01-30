@@ -15,7 +15,7 @@ export function UserProjects() {
   useEffect(() => {
     const fetchProjects = async () => {
       const { data } = await axios.get(
-        `http://localhost:3000/api/project/userallproject/${userId}`,
+        `https://mern-project-lib.onrender.com/api/project/userallproject/${userId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

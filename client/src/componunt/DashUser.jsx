@@ -22,7 +22,7 @@ export function DashUser() {
   useEffect(() => {
     const fetchProjects = async () => {
       const { data } = await axios.get(
-        `http://localhost:3000/api/project/userallproject/${userId}?limit=2`,
+        `https://mern-project-lib.onrender.com/api/project/userallproject/${userId}?limit=2`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -43,7 +43,7 @@ export function DashUser() {
     const getUser = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:3000/api/auth/user/${userId}`,
+        `https://mern-project-lib.onrender.com/api/auth/user/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

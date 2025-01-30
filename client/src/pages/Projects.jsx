@@ -20,7 +20,7 @@ export function Projects() {
     const fetchProjects = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        "http://localhost:3000/api/project/getallproject",
+        "https://mern-project-lib.onrender.com/api/project/getallproject",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

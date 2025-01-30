@@ -25,7 +25,7 @@ export function DashUserList() {
     const allUser = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        "http://localhost:3000/api/auth/allUsers",
+        "https://mern-project-lib.onrender.com/api/auth/allUsers",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -50,7 +50,7 @@ export function DashUserList() {
   const handleDeleteAccount = async () => {
     setLoadingdelete(true);
     const { data } = await axios.delete(
-      `http://localhost:3000/api/auth/deleteUser/${userId}`,
+      `https://mern-project-lib.onrender.com/api/auth/deleteUser/${userId}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 

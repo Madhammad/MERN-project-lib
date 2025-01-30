@@ -22,7 +22,7 @@ mongoose
     console.log(err);
   });
 
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors({ origin: "https://mern-project-lib.onrender.com", credentials: true }));
 
 
 
