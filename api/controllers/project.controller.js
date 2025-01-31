@@ -92,7 +92,7 @@ export const searchProjectsController = async (req, res, next) => {
             const { searchTerm, limit, order } = req.query;
 
             const sortDirection = order === 'asc' ? 1 : -1;
-            const limitNumber = parseInt(limit) || 2;
+            const limitNumber = parseInt(limit) || 6;
 
             const searchQuery = searchTerm
                   ? {
@@ -220,13 +220,13 @@ export const updateProjectImageController = async (req, res, next) => {
 
 
       if (project.createdBy.toString() !== req.user._id.toString()) {
-            throw new Error("user is not authorized for update  Project")
+            return next(errorHandler(400, 'your not allowed to update this project'))
       }
 
       const newProjectImage = await uploadOnCloudinary(projectImagePath, "projectImage")
 
       if (!newProjectImage) {
-            throw new Error("Error while uploading on image on cloudinary")
+            return next(errorHandler(400, 'cloudinary image upload error'))
       }
 
       const oldprojectimagepublic_id = project.projectImage?.public_id

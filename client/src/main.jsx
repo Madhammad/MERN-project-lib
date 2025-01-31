@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { BrowserRouter } from "react-router-dom";
 import { persistor, store } from "../store/store.js";
-// import ThemeProvider from "./components/ThemeProvider.jsx";
+
 import ThemeProvider from "./componunt/helperComp/ThemeProvider";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

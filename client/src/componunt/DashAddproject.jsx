@@ -243,10 +243,11 @@ export default function DashAddproject() {
       </form>
 
       {loading && (
-        <div className="bg-slate-300 dark:bg-slate-600 bg-opacity-50 absolute h-[700px] w-[1000px] -top-5 -left-32">
-          <div className="h-[700px] flex items-center   justify-center w-full  ">
+
+        <div className="bg-slate-300 dark:bg-slate-600 bg-opacity-50 absolute h-[800px] md:w-[1000px]  md:-top-5 md:-left-32 w-full">
+          <div className="h-[800px] flex items-center   justify-center w-full  ">
             <div className="  text-gray-700 dark:text-gray-300flex justify-center items-center flex-col rounded-lg gap-5 text-4xl">
-              <p  className=" pl-0 ">
+              <p  className=" pl-0 mb-2">
                 <span className="border  border-gray-700 dark:border-gray-300 rounded-lg md:p-1  ">
                   Pro<span className="text-indigo-500/100">J</span>ects
                 </span>

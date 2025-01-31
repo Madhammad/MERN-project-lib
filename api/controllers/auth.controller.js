@@ -13,7 +13,7 @@ export const signupController = async (req, res, next) => {
       !email ||
       !password
     ) {
-      next(errorHandler(400, 'All fields are required'))
+      next(errorHandler(200, 'All fields are required'))
     }
 
     const existedUser = await User.findOne({
@@ -21,7 +21,7 @@ export const signupController = async (req, res, next) => {
     });
 
     if (existedUser) {
-      return next(errorHandler(400, 'User already exist'));
+      return next(errorHandler(200, 'User already exist'));
     }
 
     const user = new User({
@@ -91,7 +91,7 @@ export const updateAccountDetails = async (req, res) => {
   const { username, email, headline, bio, skills } = req.body
 
   if (!username || !email) {
-    return res.status(404).json(new ApiResponse(400, {}, "All field required"))
+    return next(errorHandler(200, 'All fields are required'))
   }
 
   const user = await User.findByIdAndUpdate(
@@ -127,7 +127,7 @@ export const updateUserprofileIamge = async (req, res, next) => {
   const newProfileImage = await uploadOnCloudinary(profileImagePath, "profileImage")
 
   if (!newProfileImage) {
-    return res.status(404).json(new ApiResponse(400, {}, "Profile Image is not loading in cloudinary"))
+    return next(errorHandler(200, 'Image is required'))
   }
 
   const currentUser = await User.findById(req.params?.uersId)

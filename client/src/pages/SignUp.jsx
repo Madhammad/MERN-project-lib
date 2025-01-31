@@ -4,10 +4,6 @@ import { useState } from "react";
 
 import toast from "react-hot-toast";
 import Logo from "./../componunt/helperComp/Logo";
-
-import { HiMail } from "react-icons/hi";
-import { MdOutlinePassword } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
 import ButtonCom from "../componunt/helperComp/ButtonCom";
 import axios from "axios";
 

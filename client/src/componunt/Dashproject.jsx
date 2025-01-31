@@ -32,7 +32,7 @@ export default function DashProject() {
         }
       );
 
-      console.log(data, "data");
+   
 
       if (data.success === false) {
         setLoading(false);
@@ -56,7 +56,7 @@ export default function DashProject() {
       }
     );
 
-    // console.log(data, "data");
+    
 
     if (data.success === false) {
       return toast.error(data.error);

@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { CiEdit } from "react-icons/ci";
+import { set } from "mongoose";
 
 export default function DashUpdateproject() {
   const [title, setTitle] = useState("");
@@ -18,6 +19,8 @@ export default function DashUpdateproject() {
   const [githubLink, setGithubLink] = useState("");
   const [tags, setTags] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   const [inputValue, setInputValue] = useState("");
 
   const navigate = useNavigate();
@@ -25,7 +28,6 @@ export default function DashUpdateproject() {
   const [project, setProject] = useState({});
 
   const { projectId } = useParams();
-  // console.log(tags)
 
   const { token } = useSelector((state) => state.user);
 
@@ -71,6 +73,7 @@ export default function DashUpdateproject() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
 
     const formData = new FormData();
@@ -97,9 +100,11 @@ export default function DashUpdateproject() {
     );
 
     if (data.success === false) {
-      return toast.error(data.error);
+      setLoading(false);
+      return toast.error(data.message);
     }
     if (data.success === true) {
+      setLoading(false);
       toast.success(data.message);
       navigate(`/project/${projectId}`);
     }
@@ -134,7 +139,7 @@ export default function DashUpdateproject() {
         <div className="flex flex-col gap-4 sm:flex-row justify-between">
           <input
             type="text"
-            defaultValue={project.title}
+            defaultValue={project?.title}
             placeholder="Title"
             required
             id="title"
@@ -144,17 +149,17 @@ export default function DashUpdateproject() {
           />
           <small
             className={`${
-              project.title.length > 100 ? "text-red-400" : "text-slate-400"
+              project?.title?.length > 100 ? "text-red-400" : "text-slate-400"
             }`}
           >
-            {project.title.length}/100 characters
+            {project?.title?.length}/100 characters
           </small>
         </div>
 
         <div className="flex flex-col gap-4 sm:flex-row justify-between">
           <input
             type="text"
-            defaultValue={project.description}
+            defaultValue={project?.description}
             placeholder="Description"
             required
             id="description"
@@ -164,10 +169,10 @@ export default function DashUpdateproject() {
           />
            <small
             className={`${
-              project.description.length > 500 ? "text-red-400" : "text-slate-400"
+              project?.description?.length > 500 ? "text-red-400" : "text-slate-400"
             }`}
           >
-            {project.description.length}/500 characters
+            {project?.description?.length}/500 characters
           </small>
         </div>
 
@@ -253,6 +258,25 @@ export default function DashUpdateproject() {
           <ButtonCom text={"Update Project"} />
         </button>
       </form>
+      {loading && (
+
+<div className="bg-slate-300 dark:bg-slate-600 bg-opacity-50 absolute h-[800px] md:w-[1000px]  md:-top-5 md:-left-32 w-full">
+  <div className="h-[800px] flex items-center   justify-center w-full  ">
+    <div className="  text-gray-700 dark:text-gray-300flex justify-center items-center flex-col rounded-lg gap-5 text-4xl">
+      <p  className=" pl-0 mb-2">
+        <span className="border  border-gray-700 dark:border-gray-300 rounded-lg md:p-1  ">
+          Pro<span className="text-indigo-500/100">J</span>ects
+        </span>
+        Lab
+      </p>
+
+      <div className="progress-container ">
+        <div className="progress-bar"></div>
+      </div>
+    </div>
+  </div>
+</div>
+)}
     </div>
   );
 }
