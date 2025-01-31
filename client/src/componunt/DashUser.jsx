@@ -143,13 +143,13 @@ export function DashUser() {
                       className={
                         user?.headline
                           ? "text-slate-500  dark:text-white text-sm"
-                          : "text-red-800 text-sm"
+                          : "text-red-800 dark:text-red-400 text-sm"
                       }
                     >
                       {" "}
                       {user?.headline
                         ? user.headline
-                        : "Update your profile and enter Headline"}
+                        : "No Headline Added"}
                     </p>
                   </div>
                 </div>
@@ -165,12 +165,13 @@ export function DashUser() {
                 className={
                   user?.headline
                     ? "text-slate-700 text-sm dark:text-slate-200"
-                    : "text-red-400 text-sm"
+                    : "text-red-800 dark:text-red-400 text-sm"
                 }
               >
                 {user?.bio
                   ? user.bio
-                  : "Update your profile and enter Headline"}
+                  : "no bio added"}
+
               </p>
             </div>
 
@@ -190,8 +191,8 @@ export function DashUser() {
                     </div>
                   ))
                 ) : (
-                  <p className="text-red-400 text-sm">
-                    Update profile and add your Skills
+                  <p className="dark:text-red-400 text-red-800 text-sm">
+                    No Skills Added
                   </p>
                 )}
               </div>
@@ -240,13 +241,13 @@ export function DashUser() {
                     </div>
                   ))
                 ) : (
-                  <p className="text-red-800 text-sm p-2">
+                  <p className="text-red-800 dark:text-red-400 text-sm p-2">
                     Add your projects to Showcaise and help new developers.
                   </p>
                 )}
               </div>
 
-              <Link to={"/"} className="text-center">
+              <Link to={`/userProjects/${userId}`} className="text-center">
                 <p className="p-2 text-slate-500 hover:bg-slate-300 hover:underline rounded-xl">
                   Show All Projects
                 </p>

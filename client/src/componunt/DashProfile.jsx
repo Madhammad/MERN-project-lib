@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { About } from "./../pages/About";
 
 export default function DashProfile() {
   const { currentUser, token } = useSelector((state) => state.user);
@@ -136,7 +137,6 @@ export default function DashProfile() {
                     </p>
                   </div>
                   <div className="">
-                    
                     <div className="mb-3">
                       <div className="relative w-full h-3 bg-gray-300 rounded-full">
                         <div
@@ -145,7 +145,9 @@ export default function DashProfile() {
                         ></div>
                       </div>
                       <p className="mt-2 text-sm text-gray-600 dark:text-white text-center">
-                      {completion === 100 ? "Profile Completed" : `${completion}% completed Update Profile`}
+                        {completion === 100
+                          ? "Profile Completed"
+                          : `${completion}% completed Update Profile`}
                       </p>
                     </div>
                   </div>
@@ -187,7 +189,7 @@ export default function DashProfile() {
                 {currentUser?.skills?.length ? (
                   currentUser.skills.map((tag) => (
                     <div
-                      className="border border-gray-300 p-2 text-sm rounded-lg text-slate-700"
+                      className="border border-gray-300 p-2 md:text-sm text-xs rounded-lg text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-700 "
                       key={tag._id}
                     >
                       {tag.toUpperCase()}

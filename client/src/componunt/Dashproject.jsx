@@ -230,12 +230,12 @@ export default function DashProject() {
           </div>
 
           <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs">
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 md:items-center">
               Tags:{" "}
               <div className="flex flex-wrap gap-1">
                 {project?.tags?.map((tag, ind) => (
                   <p
-                    className="bg-slate-100 dark:bg-slate-600 p-2 rounded-lg"
+                    className="bg-slate-100 dark:bg-slate-700 md:p-2 p-1 rounded-lg"
                     key={ind}
                   >
                     {tag}
