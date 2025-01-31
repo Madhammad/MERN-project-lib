@@ -252,7 +252,7 @@ export default function DashProfile() {
                 )}
               </div>
 
-              <Link to={"/"} className="text-center">
+              <Link to={"/projects"} className="text-center">
                 <p className="p-2 text-slate-500 hover:bg-slate-300 hover:underline rounded-xl mt-2">
                   Show All Projects
                 </p>
