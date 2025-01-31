@@ -49,7 +49,7 @@ export function UserProjects() {
               >
                 <div className="flex items-center mb-4">
                   <img
-                    src={proj.createdBy.profileImage.secure_url}
+                    src={proj.createdBy?.profileImage?.secure_url}
                     alt={`${proj.createdBy.usernam}'s profile`}
                     className="w-10 h-10 rounded-full"
                   />

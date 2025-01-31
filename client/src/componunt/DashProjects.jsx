@@ -199,7 +199,7 @@ export function DashProjects() {
                           className={`text-3xl cursor-pointer ${
                             proj.isPublic
                               ? "text-indigo-500 dark:text-indigo-400"
-                              : "text-red-500"
+                              : "text-red-500 dark:text-red-400"
                           }`}
                         >
                           {proj.isPublic ? <BiCheckCircle /> : <ImCross />}
@@ -207,7 +207,7 @@ export function DashProjects() {
                       </td>
                       <td
                         className={`px-4 py-2 ${
-                          proj.likes ? "text-gray-700" : "text-red-500"
+                          proj.likes ? "text-gray-700" : "text-red-500 dark:text-red-400"
                         }`}
                       >
                         {proj.likes || "No Likes"}
@@ -279,7 +279,7 @@ export function DashProjects() {
                 <div className="flex justify-center gap-4">
                   <button
                     onClick={handleDelete}
-                    className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+                    className="px-4 py-2 bg-red-500 dark:bg-red-400 text-white rounded-lg hover:bg-red-600"
                   >
                     Yes, I'm sure
                   </button>

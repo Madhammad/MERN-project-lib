@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -14,7 +14,15 @@ export function Projects() {
 
   const [loading, setLoading] = useState(false);
 
+  const location = useLocation();
+
   const myArray = new Array(6).fill(null);
+  
+  
+  useEffect(() => {
+    
+    window.scrollTo(0, 0);
+  }, [location]);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -26,7 +34,7 @@ export function Projects() {
         }
       );
 
-      console.log(data, "data");
+     
 
       if (data.success === false) {
         setLoading(false);

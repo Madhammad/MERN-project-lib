@@ -169,7 +169,7 @@ export default function DashProfile() {
 
               <p
                 className={
-                  currentUser?.headline
+                  currentUser?.bio
                     ? "text-slate-700 dark:text-slate-200 text-sm"
                     : "text-red-400 text-sm"
                 }
