@@ -19,7 +19,7 @@ export default function DashProfile() {
     const fetchProjects = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        `https://mern-project-lib.onrender.com/api/project/userallproject/${currentUser._id}?limit=2`,
+        `https://mern-project-lib.onrender.com//api/project/userallproject/${currentUser._id}?limit=2`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }

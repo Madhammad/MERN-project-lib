@@ -76,9 +76,10 @@ export const getAllProjectsController = async (req, res, next) => {
 
       try {
             const sortDirection = req.query.order === 'asc' ? 1 : -1;
-            const limit = parseInt(req.query.limit) || 6;
+            // const limit = parseInt(req.query.limit) || 6;
 
-            const projects = await Project.find({ isPublic: true }).populate("createdBy", "username email profileImage").sort({ updatedAt: sortDirection }).limit(limit);
+            const projects = await Project.find({ isPublic: true }).populate("createdBy", "username email profileImage").sort({ updatedAt: sortDirection })
+            // .limit(limit);
 
             res.status(200).json(new ApiResponse(201, projects, "List of Project"));
       } catch {
@@ -89,10 +90,10 @@ export const getAllProjectsController = async (req, res, next) => {
 
 export const searchProjectsController = async (req, res, next) => {
       try {
-            const { searchTerm, limit, order } = req.query;
+            const { searchTerm, order } = req.query;
 
             const sortDirection = order === 'asc' ? 1 : -1;
-            const limitNumber = parseInt(limit) || 6;
+            // const limitNumber = parseInt(limit) || 6;
 
             const searchQuery = searchTerm
                   ? {
@@ -107,7 +108,8 @@ export const searchProjectsController = async (req, res, next) => {
                   }
                   : {}
 
-            const projects = await Project.find({ ...searchQuery }).populate("createdBy", ["username", "email", "profileImage"]).sort({ updatedAt: sortDirection }).limit(limitNumber);
+            const projects = await Project.find({ ...searchQuery }).populate("createdBy", ["username", "email", "profileImage"]).sort({ updatedAt: sortDirection })
+            // .limit(limitNumber);
 
             res.status(200).json(new ApiResponse(201, projects, "List of Project"));
 
@@ -124,9 +126,9 @@ export const AllProjectsController = async (req, res, next) => {
       if (!req.user?.isAdminRole) {
             return next(errorHandler(403, 'Forbidden: Admin access only.'));
       }
-
+      const sortDirection = req.query.order === 'asc' ? 1 : -1;
       try {
-            const projects = await Project.find().populate("createdBy", ["username", "email", "profileImage"]);
+            const projects = await Project.find().populate("createdBy", ["username", "email", "profileImage"]).sort({ updatedAt: sortDirection });
 
             res.status(200).json(new ApiResponse(201, projects, "List of Project"));
       } catch {
@@ -159,9 +161,9 @@ export const userProjectsController = async (req, res, next) => {
             const { limit, order } = req.query;
 
             const sortDirection = order === 'asc' ? 1 : -1;
-            const limitNumber = parseInt(limit) || 6;
+            const limitNumber = parseInt(limit) || 12;
 
-            const userProjects = await Project.find({ createdBy: userId }).sort({ updatedAt: sortDirection }).limit(limitNumber);
+            const userProjects = await Project.find({ createdBy: userId }).populate("createdBy", ["username", "email", "profileImage"]).sort({ updatedAt: sortDirection }).limit(limitNumber);
 
             res.status(200).json(new ApiResponse(200, userProjects, "List of Project"));
       } catch {
@@ -341,9 +343,9 @@ export const likeProjectcontroller = async (req, res) => {
 
 // all liked projects by user
 export const userLikdeProjectsController = async (req, res, next) => {
-
+      const sortDirection = order === 'asc' ? 1 : -1;
       try {
-            const projects = await Project.find({ totalLikes: req.user._id }).populate("createdBy", ["username", "email", "profileImage"])
+            const projects = await Project.find({ totalLikes: req.user._id }).populate("createdBy", ["username", "email", "profileImage"]).sort({ updatedAt: sortDirection });
 
             res.status(200).json(new ApiResponse(201, projects, "list of user liked"));
       } catch {
@@ -358,9 +360,9 @@ export const alLikedProjectsController = async (req, res, next) => {
       if (!req.user.isAdminRole) {
             return next(errorHandler(403, 'Forbidden: Admin access only.'))
       };
-
+      const sortDirection = order === 'asc' ? 1 : -1;
       try {
-            const projects = await Project.find({ totalLikes: { $exists: true, $not: { $size: 0 } } }).populate("createdBy", ["username", "email", "profileImage"])
+            const projects = await Project.find({ totalLikes: { $exists: true, $not: { $size: 0 } } }).populate("createdBy", ["username", "email", "profileImage"]).sort({ updatedAt: sortDirection });
 
             res.status(200).json(new ApiResponse(201, projects, "list of all liked"));
       } catch {

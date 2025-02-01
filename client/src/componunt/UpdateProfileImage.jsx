@@ -39,7 +39,7 @@ export default function UpdateProfileImage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     const { data } = await axios.put(
-      `https://mern-project-lib.onrender.com/api/auth/UpdateProfileImage/${currentUser._id}`,
+      `https://mern-project-lib.onrender.com//api/auth/UpdateProfileImage/${currentUser._id}`,
       {
         profileImage: file,
       },

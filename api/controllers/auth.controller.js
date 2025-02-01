@@ -118,7 +118,7 @@ export const updateUserprofileIamge = async (req, res, next) => {
   const profileImagePath = req.file?.path
 
   if (!profileImagePath) {
-    return  next(errorHandler(200, "profile image required"))
+    return next(errorHandler(200, "profile image required"))
   }
 
   //TODO: delete old image - assignment
@@ -223,12 +223,11 @@ export const allUserController = async (req, res, next) => {
   }
 
   try {
-    const { page = 1, limit = 10 } = req.query;
+
 
     const users = await User.find()
-      .select("-password")
-      .skip((page - 1) * limit)
-      .limit(parseInt(limit));
+      .select("-password").sort({ createdAt: -1 });
+
 
     return res.status(200).json(new ApiResponse(200, users, "List of Users"));
   } catch (error) {

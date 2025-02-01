@@ -22,7 +22,7 @@ export default function SignUp() {
     setLoading(true);
 
     const { data } = await axios.post(
-      "https://mern-project-lib.onrender.com/api/auth/signup",
+      "https://mern-project-lib.onrender.com//api/auth/signup",
       {
         username,
         email,

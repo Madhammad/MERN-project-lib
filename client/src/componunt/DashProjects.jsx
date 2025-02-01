@@ -28,7 +28,7 @@ export function DashProjects() {
       const fetchProjects = async () => {
         setLoading(true);
         const { data } = await axios.get(
-          "https://mern-project-lib.onrender.com/api/project/allprojects",
+          "https://mern-project-lib.onrender.com//api/project/allprojects",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -49,7 +49,7 @@ export function DashProjects() {
     const fetchProjects = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        `https://mern-project-lib.onrender.com/api/project/userallproject/${currentUser._id}`,
+        `https://mern-project-lib.onrender.com//api/project/userallproject/${currentUser._id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -73,7 +73,7 @@ export function DashProjects() {
     setLoading(true)
 
     const { data } = await axios.delete(
-      `https://mern-project-lib.onrender.com/api/project/deleteProject/${projId}`,
+      `https://mern-project-lib.onrender.com//api/project/deleteProject/${projId}`,
       {
         headers: { Authorization: `Bearer ${token}` },
       }

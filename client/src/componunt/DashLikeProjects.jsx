@@ -19,7 +19,7 @@ export function DashLikeProjects() {
     const fetchProjects = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        "https://mern-project-lib.onrender.com/api/project/userLikdedProjects",
+        "https://mern-project-lib.onrender.com//api/project/userLikdedProjects",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

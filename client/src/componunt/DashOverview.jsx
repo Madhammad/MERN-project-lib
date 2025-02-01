@@ -35,8 +35,8 @@ export default function DashOverview() {
       try {
         setLoading(true);
         const endpoint = currentUser.isAdminRole
-          ? "https://mern-project-lib.onrender.com/api/project/allprojects"
-          : `https://mern-project-lib.onrender.com/api/project/userallproject/${currentUser._id}`;
+          ? "https://mern-project-lib.onrender.com//api/project/allprojects"
+          : `https://mern-project-lib.onrender.com//api/project/userallproject/${currentUser._id}`;
 
         const { data } = await axios.get(endpoint, {
           headers: { Authorization: `Bearer ${token}` },
@@ -67,7 +67,7 @@ export default function DashOverview() {
   useEffect(() => {
     const allUser = async () => {
       const { data } = await axios.get(
-        "https://mern-project-lib.onrender.com/api/auth/allUsers",
+        "https://mern-project-lib.onrender.com//api/auth/allUsers",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -90,8 +90,8 @@ export default function DashOverview() {
   useEffect(() => {
     const fetchProjects = async () => {
       const endpoint = currentUser.isAdminRole
-        ? "https://mern-project-lib.onrender.com/api/project/allLikedProjects"
-        : "https://mern-project-lib.onrender.com/api/project/userLikdedProjects";
+        ? "https://mern-project-lib.onrender.com//api/project/allLikedProjects"
+        : "https://mern-project-lib.onrender.com//api/project/userLikdedProjects";
 
       const { data } = await axios.get(endpoint, {
         headers: { Authorization: `Bearer ${token}` },
@@ -112,7 +112,7 @@ export default function DashOverview() {
   const handleDeleteAccount = async () => {
     setLoadingdelete(true);
     const { data } = await axios.delete(
-      `https://mern-project-lib.onrender.com/api/auth/deleteUser/${currentUser._id}`,
+      `https://mern-project-lib.onrender.com//api/auth/deleteUser/${currentUser._id}`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
 
