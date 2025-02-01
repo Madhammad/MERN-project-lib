@@ -41,7 +41,7 @@ export function ProjectSearch() {
       const searchQuery = urlParams.toString();
 
       const { data } = await axios.get(
-        `https://mern-project-lib.onrender.com//api/project/searchprojects?${searchQuery}`
+        `https://mern-project-lib.onrender.com/api/project/searchprojects?${searchQuery}`
       );
 
       if (data.success === false) {

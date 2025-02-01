@@ -26,7 +26,7 @@ export default function UpdateProjectImage() {
     const fetchProject = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        `https://mern-project-lib.onrender.com//api/project/getproject/${projectId}`,
+        `https://mern-project-lib.onrender.com/api/project/getproject/${projectId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -65,7 +65,7 @@ export default function UpdateProjectImage() {
   const handleimageUpload = async () => {
     setLoadingImage(true);
     const { data } = await axios.put(
-      `https://mern-project-lib.onrender.com//api/project/updateProjectImage/${projectId}`,
+      `https://mern-project-lib.onrender.com/api/project/updateProjectImage/${projectId}`,
       {
         projectImage: file,
       },

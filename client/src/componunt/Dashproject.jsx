@@ -26,7 +26,7 @@ export default function DashProject() {
     const fetchProjects = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        `https://mern-project-lib.onrender.com//api/project/getproject/${projectId}`,
+        `https://mern-project-lib.onrender.com/api/project/getproject/${projectId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -49,7 +49,7 @@ export default function DashProject() {
 
   const handlelike = async () => {
     const { data } = await axios.post(
-      `https://mern-project-lib.onrender.com//api/project/likeProject/${projectId}`,
+      `https://mern-project-lib.onrender.com/api/project/likeProject/${projectId}`,
       {},
       {
         headers: { Authorization: `Bearer ${token}` },
@@ -71,7 +71,7 @@ export default function DashProject() {
     setShowisPublicModal(false);
 
     const { data } = await axios.put(
-      `https://mern-project-lib.onrender.com//api/project/isPublicProject/${projectId}`,
+      `https://mern-project-lib.onrender.com/api/project/isPublicProject/${projectId}`,
       {},
       {
         headers: { Authorization: `Bearer ${token}` },

@@ -224,10 +224,8 @@ export const allUserController = async (req, res, next) => {
 
   try {
 
-
     const users = await User.find()
       .select("-password").sort({ createdAt: -1 });
-
 
     return res.status(200).json(new ApiResponse(200, users, "List of Users"));
   } catch (error) {

@@ -7,7 +7,7 @@ import ReactLoading from "react-loading";
 import ButtonCom from "./helperComp/ButtonCom";
 
 export function DashLikeProjects() {
-  const { currentUser, token } = useSelector((state) => state.user);
+  const {  token } = useSelector((state) => state.user);
 
   const [projects, setProjects] = useState([]);
 
@@ -19,7 +19,7 @@ export function DashLikeProjects() {
     const fetchProjects = async () => {
       setLoading(true);
       const { data } = await axios.get(
-        "https://mern-project-lib.onrender.com//api/project/userLikdedProjects",
+        "https://mern-project-lib.onrender.com/api/project/userLikdedProjects",
         {
           headers: { Authorization: `Bearer ${token}` },
         }

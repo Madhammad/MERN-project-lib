@@ -38,7 +38,7 @@ export default function UpdateProfile() {
 
     setLoading(true);
     const { data } = await axios.delete(
-      `https://mern-project-lib.onrender.com//api/auth/deleteUser/${currentUser._id}`,
+      `https://mern-project-lib.onrender.com/api/auth/deleteUser/${currentUser._id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -87,7 +87,7 @@ export default function UpdateProfile() {
 
     // try {
     const { data } = await axios.put(
-      `https://mern-project-lib.onrender.com//api/auth/updateUser/${currentUser._id}`,
+      `https://mern-project-lib.onrender.com/api/auth/updateUser/${currentUser._id}`,
       {
         username: username,
         email: email,
